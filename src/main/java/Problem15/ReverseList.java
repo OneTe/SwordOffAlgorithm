@@ -2,6 +2,8 @@ package Problem15;
 
 import common.ListNode;
 
+import java.util.List;
+
 /**
  * 输入一个链表，反转链表后，输出链表的所有元素。
  *
@@ -50,7 +52,7 @@ public class ReverseList {
         h2.next = h3;
         h3.next = h4;
         ListNode ln = rl.reverseList(h);
-        while (ln.next != null){
+        while (ln != null){
 
             System.out.println(ln.val);
             ln = ln.next;
