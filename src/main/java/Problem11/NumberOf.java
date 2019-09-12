@@ -18,12 +18,45 @@ package Problem11;
     制有多少个1，就可以进行多少次这样的操作
  */
 public class NumberOf {
-    public int numberOf1(int n){
+    public static int numberOf1(int n){
         int count = 0;
         while (n!=0){
             count++;
             n = n & (n-1);
         }
         return count;
+    }
+    //测试用例
+    /*
+        正数（包括边界值1，0x7FFFFFFF）
+        负数（包括边界值0x80000000,0xFFFFFFFF)
+        0
+     */
+
+    //输入两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n
+    public static int changeNums(int m, int n){
+        int res = m ^ n;
+        return numberOf1(res);
+    }
+
+    //交换2个数的值
+    public static void magic(int m, int n){
+        m = m ^ n;
+        n = n ^ m;
+        m = m ^ n;
+        System.out.println("m : " + m + " n : " + n);
+    }
+
+    //判断给定的数是否是2个整数次方
+    public static boolean is2Power(int n){
+        return (n & (n - 1)) == 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(changeNums(10, 14));
+        magic(-10, 5);
+        System.out.println(is2Power(-2));
+        String ss = "axnac";
+        System.out.println(ss.substring(ss.length() -1, ss.length()));
     }
 }
